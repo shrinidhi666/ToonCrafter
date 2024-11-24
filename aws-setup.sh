@@ -22,7 +22,7 @@ sudo yum install -y git
 
 # Step 4: Clone the ToonCrafter repository
 echo "Cloning ToonCrafter repository..."
-git clone https://github.com/Doubiiu/ToonCrafter.git
+git clone https://github.com/shrinidhi666/ToonCrafter.git
 cd ToonCrafter
 
 # Step 5: Download the model checkpoint
