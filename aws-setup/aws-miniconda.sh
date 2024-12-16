@@ -5,8 +5,6 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-# Update system packages
-sudo yum update -y
 
 # Define Miniconda download URL
 MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"

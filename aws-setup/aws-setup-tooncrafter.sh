@@ -7,11 +7,6 @@ set -e
 REPO_URL="https://github.com/shrinidhi666/ToonCrafter.git"
 REPO_FOLDER="ToonCrafter"
 
-# Install dependencies
-sudo yum update -y
-sudo yum install -y git wget
-
-# Clone repository
 if [ ! -d "$REPO_FOLDER" ]; then
     git clone $REPO_URL
 else
