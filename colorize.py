@@ -1,14 +1,22 @@
 import torch
 from PIL import Image
+from scripts.evaluation.inference import load_model_checkpoint
+from utils.utils import instantiate_from_config
 import numpy as np
 import argparse
 import os
+from omegaconf import OmegaConf
 
 
 # Load the sketch colorization model
 def load_model(checkpoint_path):
     # Load the model and set it to evaluation mode
-    model = torch.load(checkpoint_path, map_location=torch.device('cpu'))
+    config = OmegaConf.load("./configs/inference_512_v1.0.yaml")
+    model_config = config.pop("model", OmegaConf.create())
+    model_config['params']['unet_config']['params']['use_checkpoint'] = False
+    model = instantiate_from_config(model_config)
+    model = load_model_checkpoint(model, checkpoint_path)
+    # model = torch.load(checkpoint_path, map_location=torch.device('cpu'))
     model.eval()
     return model
 
