@@ -16,6 +16,7 @@ def load_model(checkpoint_path):
     model_config['params']['unet_config']['params']['use_checkpoint'] = False
     model = instantiate_from_config(model_config)
     model = load_model_checkpoint(model, checkpoint_path)
+    model = model.cuda(1)
     # model = torch.load(checkpoint_path, map_location=torch.device('cpu'))
     model.eval()
     return model
